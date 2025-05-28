@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Troca e Doação - Londrina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+ const documentos = [
+    { titulo: "Visão do Projeto", path: "documentos/extensão unifil_ visão.pdf" },
+    { titulo: "DER, implantação e workflow", path: "Documentos/DER, diagrama de implantação e workflow.pdf" },
+    { titulo: "MVP e Diagrama de Caso de Uso", path: "Documentos/extensão unifil- mvp e diagrama caso de uso.pdf" },
+  ];
+
+  let indiceAtual = 0;
+
+  function atualizarVisualizacao() {
+    const doc = documentos[indiceAtual];
+    document.getElementById("documentoAtual").textContent = doc.titulo;
+
+    // Verifica se é PDF ou HTML
+    if (doc.path.endsWith(".pdf")) {
+      document.getElementById("conteudoDocumento").innerHTML = `
+         <iframe 
+        src="${doc.path}#toolbar=0&navpanes=0&scrollbar=0" 
+        width="100%" 
+        height="600px" 
+        style="border: none;">
+      </iframe>
+    `;
+    } else {
+      document.getElementById("conteudoDocumento").innerHTML = `
+        <iframe src="${doc.path}" width="100%" height="100%" style="border: none;></iframe>
+      `;
+    }
+  }
+
+  function anterior() {
+    indiceAtual = (indiceAtual - 1 + documentos.length) % documentos.length;
+    atualizarVisualizacao();
+  }
+
+  function proximo() {
+    indiceAtual = (indiceAtual + 1) % documentos.length;
+    atualizarVisualizacao();
+  }
+
+  window.onload = atualizarVisualizacao;
+</script>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Documentação</h1>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav>
+        <ul>
+            <li>  <a href="Home.html">Início</a> </li>
+                <li> <a href="projeto.html">Projeto</a></li>
+                    <li> <a href="comunidade.html">Comunidade</a></li>
+                    <li> <a href="Documentacao.html">Documentação</a></li>
+c                        <li> <a href="quem somos.html">Quem Somos</a></li>
+        </ul>
+    </nav>
+
+<div class="navegador-documentos-container">
+  <button class="btn-esquerda" onclick="anterior()">⬅</button>
+
+  <div class="documento-centro">
+    <span id="documentoAtual">Documento 1</span>
+    <div id="conteudoDocumento" class="conteudo-documento">
+      <p>Conteúdo do Documento 1</p>
+    </div>
+  </div>
+
+  <button class="btn-direita" onclick="proximo()">➡</button>
+</div>
+
+   <!-- Rodapé -->
+   <footer>
+    <p>&copy; 2025 Projeto de Extensão Curricular - Unifil | Todos os direitos reservados.</p>
+</footer>
+
+<!-- Logo Unifil no canto inferior direito -->
+<div class="logo-unifil">
+    <img src="img/logo_unifil-centro-universitario-filadelfia_bduUsl.png" alt="Logo Unifil">
+</div>
+
+</body>
+</html>
