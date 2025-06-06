@@ -82,19 +82,18 @@ nav a:hover {
 }
 
 /* ==================== ÁREA DOCUMENTOS ==================== */
-.navegador-documentos-container {
+  .navegador-documentos-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 40px auto;
     width: 90%;
     max-width: 1000px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+    position: relative;
+  }
 
-.btn-esquerda,
-.btn-direita {
+  .btn-esquerda,
+  .btn-direita {
     background-color: #ff6600;
     color: white;
     border: none;
@@ -103,40 +102,37 @@ nav a:hover {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+    height: fit-content;
+  }
 
-.btn-esquerda:hover,
-.btn-direita:hover {
+  .btn-esquerda:hover,
+  .btn-direita:hover {
     background-color: #e65c00;
-}
+  }
 
-.documento-centro {
+  .documento-centro {
     flex: 1;
     text-align: center;
     padding: 0 20px;
-}
+  }
 
-.documento-centro span {
+  .documento-centro span {
     display: block;
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 15px;
     color: #333;
-}
+  }
 
-.conteudo-documento {
+  .conteudo-documento {
     background-color: #f9f9f9;
     padding: 25px;
     border: 2px solid #ddd;
     border-radius: 10px;
+    font-size: 16px;
+    color: #333;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.conteudo-documento iframe {
-    width: 100%;
-    height: 60vh;
-    border: none;
-}
+  }
 
 /* ==================== PÁGINA QUEM SOMOS ==================== */
 .container {
