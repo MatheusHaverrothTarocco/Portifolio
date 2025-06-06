@@ -8,48 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<script>
- const documentos = [
-    { titulo: "Visão do Projeto", path: "documentos/extensão unifil_ visão.pdf" },
-    { titulo: "DER, implantação e workflow", path: "documentos/DER, diagrama de implantação e workflow.pdf" },
-    { titulo: "MVP e Diagrama de Caso de Uso", path: "documentos/extensão unifil- mvp e diagrama caso de uso.pdf" },
-  ];
-
-  let indiceAtual = 0;
-
-  function atualizarVisualizacao() {
-    const doc = documentos[indiceAtual];
-    document.getElementById("documentoAtual").textContent = doc.titulo;
-
-    // Verifica se é PDF ou HTML
-    if (doc.path.endsWith(".pdf")) {
-      document.getElementById("conteudoDocumento").innerHTML = `
-         <iframe 
-        src="${doc.path}#toolbar=0&navpanes=0&scrollbar=0" 
-        width="100%" 
-        height="600px" 
-        style="border: none;">
-      </iframe>
-    `;
-    } else {
-      document.getElementById("conteudoDocumento").innerHTML = `
-        <iframe src="${doc.path}" width="100%" height="100%" style="border: none;></iframe>
-      `;
-    }
-  }
-
-  function anterior() {
-    indiceAtual = (indiceAtual - 1 + documentos.length) % documentos.length;
-    atualizarVisualizacao();
-  }
-
-  function proximo() {
-    indiceAtual = (indiceAtual + 1) % documentos.length;
-    atualizarVisualizacao();
-  }
-
-  window.onload = atualizarVisualizacao;
-</script>
+<script defer src="script"></script>
 
 <body>
 
